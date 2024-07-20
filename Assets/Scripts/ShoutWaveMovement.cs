@@ -27,6 +27,7 @@ public class ShoutWaveMovement: MonoBehaviour
         float moveDuration = 0.5f; // Move for 1 second
         float elapsedTime = 0f;
         transform.localPosition = position;
+        transform.localR
 
         // Move the square object based on the volume
         while (elapsedTime < moveDuration)
