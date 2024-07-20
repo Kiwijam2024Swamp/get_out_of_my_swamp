@@ -58,4 +58,13 @@ public class ShoutWaveMovement: MonoBehaviour
         // Apply the rotation to the object
         transform.rotation = rotation;
     }
+
+    void OnTriggerEnter2D(Collider2D col)
+    {
+        if(col.gameObject.tag == "Breacher")
+        {
+            BreacherController bc = col.GetComponent<BreacherController>();
+            bc.TakeDamage(1);                                                //TODO: Modify this based on volume
+        }
+    }
 }
