@@ -147,7 +147,7 @@ Transform:
   m_GameObject: {fileID: 190319780}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.06, y: 0.6, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -277,6 +277,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   micInput: {fileID: 2013798938}
   threshold: 0.1
+  direction: {x: 0, y: 0}
   activationInterval: 1
   waveObject: {fileID: 8739375181040327831, guid: 59096b4e128e9dd408e9e69ac23fe15b, type: 3}
   spawnPos: {fileID: 190319781}
@@ -393,7 +394,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &8190990133031947199
+--- !u!1001 &2049492138
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -403,11 +404,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1732600050775988892, guid: 59096b4e128e9dd408e9e69ac23fe15b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.19
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1732600050775988892, guid: 59096b4e128e9dd408e9e69ac23fe15b, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.72
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1732600050775988892, guid: 59096b4e128e9dd408e9e69ac23fe15b, type: 3}
       propertyPath: m_LocalPosition.z
@@ -460,5 +461,5 @@ SceneRoots:
   m_Roots:
   - {fileID: 519420032}
   - {fileID: 2013798939}
-  - {fileID: 8190990133031947199}
   - {fileID: 1278091999}
+  - {fileID: 2049492138}
