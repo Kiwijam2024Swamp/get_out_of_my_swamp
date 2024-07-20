@@ -27,6 +27,8 @@
 .vs/
 .vscode/
 
+
+
 # Gradle cache directory
 .gradle/
 
@@ -52,6 +54,7 @@ ExportedObj/
 *.pidb.meta
 *.pdb.meta
 *.mdb.meta
+*.cs.meta # remove the cs meta thingies
 
 # Unity3D generated file on crash reports
 sysinfo.txt
