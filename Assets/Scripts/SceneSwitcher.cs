@@ -20,4 +20,13 @@ public class SceneSwitcher : MonoBehaviour
     {
         
     }
+
+    public void QuitGame()
+    {
+        Application.Quit();
+        #if UNITY_EDITOR
+        // If running in the Unity editor, stop playing the scene.
+        UnityEditor.EditorApplication.isPlaying = false;
+        #endif
+    }
 }
