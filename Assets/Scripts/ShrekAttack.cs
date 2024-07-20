@@ -7,6 +7,7 @@ public class ShrekAttack : MonoBehaviour
     public MicrophoneInput micInput;
     private ShoutWaveMovement shoutWave;
     public float threshold = 0.3f;
+    public Vector2 direction = new Vector2(0.0f, 0.0f);
 
     public float activationInterval = 1.0f; // Time in seconds between activations
     private float lastActivationTime = 0f;
@@ -30,7 +31,7 @@ public class ShrekAttack : MonoBehaviour
             shoutWave = instance.GetComponent<ShoutWaveMovement>();
             // Debug.Log("Sound detected!");
             Debug.Log("Loudness: " + volume);
-            StartCoroutine(shoutWave.MoveSquare(volume, spawnPos.position, 0.0f));
+            StartCoroutine(shoutWave.MoveSquare(volume, spawnPos.position, direction));
             lastActivationTime = Time.time;
         }
     }
