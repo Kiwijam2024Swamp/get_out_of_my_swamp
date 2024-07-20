@@ -4,16 +4,11 @@ using UnityEngine;
 
 public class ShoutWaveMovement: MonoBehaviour
 {
-    // Start is called before the first frame update
-    public MicrophoneInput micInput;
-    public float threshold = 0.1f;
-    public float distance = 5.0f;
-    public float size = 0.05f;
-    public float moveSpeed = 1.0f;
-    public float activationInterval = 1.0f; // Time in seconds between activations
 
-    private float lastActivationTime = 0f;
-    private bool didActivate = false;
+    public float size = 0.05f;
+    public float moveSpeed = 10.0f;
+    // public Vector2 position;
+    
 
     void Start()
     {
@@ -23,27 +18,20 @@ public class ShoutWaveMovement: MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float volume = micInput.GetMicrophoneVolume();
-        
 
-        if (volume > threshold && Time.time - lastActivationTime >= activationInterval)
-        {
-            // Debug.Log("Sound detected!");
-            Debug.Log("Loudness: " + volume);
-            StartCoroutine(MoveSquare(volume));
-            lastActivationTime = Time.time;
-        }
     }
 
-    IEnumerator MoveSquare(float volume)
+    public IEnumerator MoveSquare(float volume, Vector2 position, float direction)
     {
+        // Create(this.gameObject);
         float moveDuration = 0.5f; // Move for 1 second
         float elapsedTime = 0f;
+        transform.localPosition = position;
 
         // Move the square object based on the volume
         while (elapsedTime < moveDuration)
         {
-            transform.Translate(Vector3.up * moveSpeed * volume * distance *Time.deltaTime);
+            transform.Translate(Vector3.up * moveSpeed * volume * Time.deltaTime);
             Vector2 scale = transform.localScale;
             scale.x += size; 
             transform.localScale = scale;
@@ -51,6 +39,6 @@ public class ShoutWaveMovement: MonoBehaviour
             yield return null;
         }
 
-        //Destroy(this.gameObject);
+        Destroy(this.gameObject);
     }
 }
