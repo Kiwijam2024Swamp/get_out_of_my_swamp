@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class MicrophoneInput : MonoBehaviour
 {
-    public string microphone;
+    private string microphone;
     // public float threshold = 0.5f;
     private AudioClip micClip;
     private int sampleWindow = 128;

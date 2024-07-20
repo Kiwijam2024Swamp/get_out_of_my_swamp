@@ -5,7 +5,7 @@ using UnityEngine;
 public class ShrekController : MonoBehaviour
 {
     public float speed = 5.0f;
-    public Vector2 direction;
+    public Vector2 direction { get; private set; }
     private Rigidbody2D rb;
     private SpriteRenderer sr;
 
