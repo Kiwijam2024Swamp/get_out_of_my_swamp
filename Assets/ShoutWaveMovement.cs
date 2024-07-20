@@ -8,7 +8,7 @@ public class ShoutWaveMovement: MonoBehaviour
     public MicrophoneInput micInput;
     public float threshold = 0.1f;
     public float distance = 5.0f;
-    public float size = 10.0f;
+    public float size = 0.05f;
     public float moveSpeed = 1.0f;
     public float activationInterval = 1.0f; // Time in seconds between activations
 
@@ -39,10 +39,14 @@ public class ShoutWaveMovement: MonoBehaviour
     {
         float moveDuration = 0.5f; // Move for 1 second
         float elapsedTime = 0f;
+
         // Move the square object based on the volume
         while (elapsedTime < moveDuration)
         {
             transform.Translate(Vector3.up * moveSpeed * volume * distance *Time.deltaTime);
+            Vector2 scale = transform.localScale;
+            scale.x += size; 
+            transform.localScale = scale;
             elapsedTime += Time.deltaTime;
             yield return null;
         }
