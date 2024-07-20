@@ -56,5 +56,5 @@
         "temp/": true,
         "Temp/": true
     },
-    "dotnet.defaultSolution": "The Swamp.sln"
+    "dotnet.defaultSolution": "get_out_of_my_swamp.sln"
 }
