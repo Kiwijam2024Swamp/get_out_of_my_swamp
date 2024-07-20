@@ -6,7 +6,7 @@ public class ShrekAttack : MonoBehaviour
 {
     public MicrophoneInput micInput;
     private ShoutWaveMovement shoutWave;
-    public float threshold = 0.3f;
+    // public float threshold = 0.3f;
     private Vector2 direction;
 
     public float activationInterval = 1.0f; // Time in seconds between activations
@@ -27,7 +27,7 @@ public class ShrekAttack : MonoBehaviour
         direction = shrek.direction;
         float volume = micInput.GetMicrophoneVolume();       
 
-        if (volume > threshold && Time.time - lastActivationTime >= activationInterval)
+        if (volume > GameSettings.micThreshold && Time.time - lastActivationTime >= activationInterval)
         {
             GameObject instance = Instantiate(waveObject, spawnPos.position, Quaternion.identity);
             shoutWave = instance.GetComponent<ShoutWaveMovement>();

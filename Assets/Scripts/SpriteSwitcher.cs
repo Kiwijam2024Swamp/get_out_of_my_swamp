@@ -15,7 +15,6 @@ public class SpriteSwitcher : MonoBehaviour
 
     public Image full;
 
-    private float volume = 0;
     private Coroutine spriteChangeCoroutine;
 
     void Start() 
