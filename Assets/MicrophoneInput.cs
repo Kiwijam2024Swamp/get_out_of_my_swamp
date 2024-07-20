@@ -6,7 +6,7 @@ using UnityEngine;
 public class MicrophoneInput : MonoBehaviour
 {
     public string microphone;
-    public float threshold = 0.5f;
+    // public float threshold = 0.5f;
     private AudioClip micClip;
     private int sampleWindow = 128;
 
@@ -22,13 +22,13 @@ public class MicrophoneInput : MonoBehaviour
 
     void Update()
     {
-        float volume = GetMicrophoneVolume();
-        // Debug.Log("Loudness: " + volume);
+        // float volume = GetMicrophoneVolume();
+        // // Debug.Log("Loudness: " + volume);
 
-        if (volume > threshold)
-        {
-            Debug.Log("Loudness: " + volume);
-        }
+        // if (volume > threshold)
+        // {
+        //     Debug.Log("Loudness: " + volume);
+        // }
     }
 
     void StartMicrophone()
@@ -36,7 +36,7 @@ public class MicrophoneInput : MonoBehaviour
         micClip = Microphone.Start(microphone, true, 1, AudioSettings.outputSampleRate);
     }
 
-    float GetMicrophoneVolume()
+    public float GetMicrophoneVolume()
     {
         float[] data = new float[sampleWindow];
         int position = Microphone.GetPosition(microphone) - sampleWindow + 1;
