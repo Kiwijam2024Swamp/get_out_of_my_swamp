@@ -7,23 +7,25 @@ public class ShrekAttack : MonoBehaviour
     public MicrophoneInput micInput;
     private ShoutWaveMovement shoutWave;
     public float threshold = 0.3f;
-    public Vector2 direction = new Vector2(0.0f, 0.0f);
+    private Vector2 direction;
 
     public float activationInterval = 1.0f; // Time in seconds between activations
     private float lastActivationTime = 0f;
     public GameObject waveObject;
     public Transform spawnPos;
 
+    private ShrekController shrek;
+
     void Start()
     {
-        
+        shrek = GetComponent<ShrekController>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        direction = shrek.direction;
         float volume = micInput.GetMicrophoneVolume();       
-        
 
         if (volume > threshold && Time.time - lastActivationTime >= activationInterval)
         {
