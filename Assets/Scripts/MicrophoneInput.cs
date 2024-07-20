@@ -53,6 +53,7 @@ public class MicrophoneInput : MonoBehaviour
                 levelMax = wavePeak;
             }
         }
+        
         return Mathf.Sqrt(levelMax);
     }
 
