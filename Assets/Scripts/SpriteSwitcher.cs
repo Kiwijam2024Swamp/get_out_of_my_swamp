@@ -10,11 +10,13 @@ public class SpriteSwitcher : MonoBehaviour
     public Image targetImage;
     public Sprite micOffSprite;
     public Sprite micOnSprite;
-    public float threshold = 0.1f;
+    // public float threshold = 0.1f;
+    public float delay = 0.30f;
 
     public Image full;
 
     private float volume = 0;
+    private Coroutine spriteChangeCoroutine;
 
     void Start() 
     {
@@ -23,28 +25,22 @@ public class SpriteSwitcher : MonoBehaviour
 
     void Update()
     {
-        if(micInput.GetMicrophoneVolume() != null)
+        float volume = micInput.GetMicrophoneVolume();
+        if (volume > GameSettings.micThreshold)
         {
-            volume = micInput.GetMicrophoneVolume();
-        } 
-        else
-        {
-            volume = 0.0f;
-        }
-        Debug.Log(volume);
-
-        /*var temp = full.color;
-        temp.a = volume;
-        full.color = temp;*/
-
-
-        if (volume > threshold)
-        {
+            if (spriteChangeCoroutine != null)
+            {
+                StopCoroutine(spriteChangeCoroutine);
+                spriteChangeCoroutine = null;
+            }
             ChangeSprite(micOnSprite);
         }
         else
         {
-            ChangeSprite(micOffSprite);
+            if (spriteChangeCoroutine == null)
+            {
+                spriteChangeCoroutine = StartCoroutine(DelayedSpriteChange());
+            }
         }
     }
 
@@ -54,5 +50,12 @@ public class SpriteSwitcher : MonoBehaviour
         {
             targetImage.sprite = newSprite;
         }
+    }
+
+    IEnumerator DelayedSpriteChange()
+    {
+        yield return new WaitForSeconds(delay);
+        ChangeSprite(micOffSprite);
+        spriteChangeCoroutine = null;
     }
 }
