@@ -154,6 +154,10 @@ MonoBehaviour:
   spawnPosition: {x: 0, y: 0}
   breachers:
   - {fileID: 2952578598648727044, guid: 71581f1e810acc108ad9ec348a3ed939, type: 3}
+  - {fileID: 2952578598648727044, guid: ff9c573eea6762a53ae56f8ba3e2176b, type: 3}
+  - {fileID: 2952578598648727044, guid: b781bd122bdf64069ab44608e28fc381, type: 3}
+  - {fileID: 2952578598648727044, guid: 2932dd1e679f126b891deb419a6acbbe, type: 3}
+  - {fileID: 2952578598648727044, guid: b7b8b3cbfc542f3dba025c9c8632bd14, type: 3}
   spawnInterval: 2
 --- !u!4 &60826877
 Transform:
