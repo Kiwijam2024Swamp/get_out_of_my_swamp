@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 4528992184946440077}
   - component: {fileID: 8228831226589730236}
   - component: {fileID: 5349301021216071696}
+  - component: {fileID: 5006945271765261179}
   m_Layer: 0
   m_Name: ShoutWave
   m_TagString: Untagged
@@ -74,7 +75,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 5
   m_Sprite: {fileID: 21300000, guid: 991892e656df44642957d0523007f7c6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -86,20 +87,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &5006945271765261179
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8739375181040327831}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d42e9c736be4002498762056e8daf567, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  size: 0.05
-  moveSpeed: 10
 --- !u!61 &8228831226589730236
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -146,6 +133,20 @@ BoxCollider2D:
   m_Size: {x: 0.29578546, y: 0.07930462}
   m_EdgeRadius: 0
 --- !u!114 &5349301021216071696
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8739375181040327831}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d42e9c736be4002498762056e8daf567, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  size: 0.05
+  moveSpeed: 10
+--- !u!114 &5006945271765261179
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
