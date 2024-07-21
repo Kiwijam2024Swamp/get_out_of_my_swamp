@@ -25,7 +25,7 @@ public class GameManager : MonoBehaviour
 
         if (_difficultyTimer <= 0)
         {
-            spawnInterval -= 0.1f;
+            spawnInterval -= 0.5f;
             _difficultyTimer = startDifficultyTimer;
         }
         else
