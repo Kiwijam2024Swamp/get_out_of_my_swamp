@@ -1,7 +1,6 @@
 using System.Collections;
-using System.Collections.Generic;
-using UnityEngine.UI;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class SpriteSwitcher : MonoBehaviour
 {
@@ -11,12 +10,12 @@ public class SpriteSwitcher : MonoBehaviour
     public Sprite micOnSprite;
     public float delay = 0.30f;
 
-    public Image full;
-
     private Coroutine spriteChangeCoroutine;
     public GameObject shrekSprite; // GameObject for the random sprite
     public RectTransform canvasRectTransform; // Reference to the canvas RectTransform
     private SpriteRenderer shrekSpriteRenderer;
+
+    private bool isShrekVisible = false;
 
     void Start()
     {
@@ -36,15 +35,17 @@ public class SpriteSwitcher : MonoBehaviour
                 spriteChangeCoroutine = null;
             }
             ChangeMicSprite(micOnSprite);
-            ShowShrekSprite(true);
+            if (!isShrekVisible)
+            {
+                ShowShrekSprite(true);
+                isShrekVisible = true;
+            }
         }
         else
         {
             if (spriteChangeCoroutine == null)
             {
                 spriteChangeCoroutine = StartCoroutine(DelayedHideShrekSprite());
-                spriteChangeCoroutine = StartCoroutine(DelayedSpriteChange());
-                ChangeMicSprite(micOffSprite);
             }
         }
     }
@@ -59,12 +60,15 @@ public class SpriteSwitcher : MonoBehaviour
 
     void ShowShrekSprite(bool makeVisible)
     {
-        shrekSpriteRenderer.enabled = makeVisible;
-
         if (makeVisible)
         {
+            shrekSpriteRenderer.enabled = true;
             Vector2 randomPosition = GetRandomPosition();
             shrekSprite.transform.position = randomPosition;
+        }
+        else
+        {
+            shrekSpriteRenderer.enabled = false;
         }
     }
 
@@ -72,21 +76,16 @@ public class SpriteSwitcher : MonoBehaviour
     {
         yield return new WaitForSeconds(delay);
         ShowShrekSprite(false);
-        
-    }
-
-    IEnumerator DelayedSpriteChange()
-    {
-        yield return new WaitForSeconds(delay);
+        ChangeMicSprite(micOffSprite);
         spriteChangeCoroutine = null;
+        isShrekVisible = false;
     }
-
 
     Vector2 GetRandomPosition()
     {
         // Get random position within the canvas
         float randomX = Random.Range(-canvasRectTransform.rect.width / 2, canvasRectTransform.rect.width / 2);
-        float randomY = Random.Range(- canvasRectTransform.rect.height / 2, canvasRectTransform.rect.height / 2);
+        float randomY = Random.Range(-canvasRectTransform.rect.height / 2, canvasRectTransform.rect.height / 2);
 
         // Convert to world position
         Vector2 worldPosition = canvasRectTransform.TransformPoint(new Vector2(randomX, randomY));

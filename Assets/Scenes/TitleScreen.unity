@@ -156,7 +156,6 @@ MonoBehaviour:
   micOffSprite: {fileID: 21300000, guid: e5c96bf9a4be6e647a3c61002e53ab65, type: 3}
   micOnSprite: {fileID: 21300000, guid: 22ea185074d0233419c873e941a71542, type: 3}
   delay: 0.3
-  full: {fileID: 1759651253}
   shrekSprite: {fileID: 252197143}
   canvasRectTransform: {fileID: 673636178}
 --- !u!114 &8498475
@@ -235,7 +234,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f71c23289689e746879917983fb65d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 1
+  speed: 0.69
   startTransform: {fileID: 66722736}
   endTransform: {fileID: 1723539042}
 --- !u!212 &9942869
@@ -3159,7 +3158,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f71c23289689e746879917983fb65d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0.7
+  speed: 0.4
   startTransform: {fileID: 66722736}
   endTransform: {fileID: 1723539042}
 --- !u!1 &1992060959
