@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Breacher
   - BreacherTarget
+  - OffscreenBreacherTarget
   layers:
   - Default
   - TransparentFX

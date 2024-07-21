@@ -6,14 +6,16 @@ using Pathfinding;
 
 public class BreacherController : MonoBehaviour
 {
-    public SpriteRenderer sr;
-    public Rigidbody2D rb;
+    private SpriteRenderer sr;
+    private Rigidbody2D rb;
     public float speed = 5.0f;
     public float maxHealth = 3.0f;
     private Transform _targetPos;
     private Transform _offscreenTargetPos;
     private float _health;
     private Boolean _damageEffect;
+
+    public AIDestinationSetter ds;
 
     private GameManager _gm;
 
@@ -28,9 +30,9 @@ public class BreacherController : MonoBehaviour
 
         _gm = GameObject.Find("GameManager").GetComponent<GameManager>();
 
-        gameObject.GetComponent<AIDestinationSetter>().target = _targetPos;
+        ds.target = _targetPos;
 
-        sr = this.GetComponentInChildren<SpriteRenderer>();
+        sr = this.GetComponent<SpriteRenderer>();
         rb = this.GetComponent<Rigidbody2D>();
     }
 
@@ -47,7 +49,7 @@ public class BreacherController : MonoBehaviour
             //Move away from house door
             transform.position = Vector2.MoveTowards(transform.position, _offscreenTargetPos.position, speed * Time.deltaTime);
 
-            gameObject.GetComponent<AIDestinationSetter>().target = _offscreenTargetPos;
+            ds.target = _offscreenTargetPos;
         }
 
         CheckStatus();
@@ -65,7 +67,7 @@ public class BreacherController : MonoBehaviour
         if (_health <= 0)
         {
             _gm.score++;
-            //Destroy(gameObject);
+            Destroy(gameObject);
         }
     }
 

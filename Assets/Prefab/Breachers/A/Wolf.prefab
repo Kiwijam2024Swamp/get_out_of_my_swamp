@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 8476464089634256302}
   - component: {fileID: 7442288887717693626}
   - component: {fileID: 1881720711599279532}
-  - component: {fileID: 5809981493175968788}
   m_Layer: 0
   m_Name: Wolf
   m_TagString: Untagged
@@ -80,7 +79,7 @@ MonoBehaviour:
   radius: 0.13
   height: 2
   canMove: 1
-  maxSpeed: 2.5
+  maxSpeed: 1
   gravity: {x: 0, y: 0, z: 0}
   groundMask:
     serializedVersion: 2
@@ -120,20 +119,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   version: 1
   target: {fileID: 0}
---- !u!114 &5809981493175968788
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1997080754533324801}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f449e3efc8d85a9499537548198b88c7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 0
-  maxHealth: 3
 --- !u!1 &6885515150418167420
 GameObject:
   m_ObjectHideFlags: 0
@@ -146,9 +131,10 @@ GameObject:
   - component: {fileID: 4859758001165592339}
   - component: {fileID: 199731336386210414}
   - component: {fileID: 825581006984945263}
+  - component: {fileID: 4390041037944623480}
   m_Layer: 0
   m_Name: Sprite
-  m_TagString: Untagged
+  m_TagString: Breacher
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -292,3 +278,18 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &4390041037944623480
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6885515150418167420}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f449e3efc8d85a9499537548198b88c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 0
+  maxHealth: 3
+  ds: {fileID: 1881720711599279532}

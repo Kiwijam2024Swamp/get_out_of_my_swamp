@@ -53833,6 +53833,26 @@ PrefabInstance:
       propertyPath: radius
       value: 20
       objectReference: {fileID: 0}
+    - target: {fileID: 446585456320066883, guid: 3906ac6dc1839834cb6277db682c9d7a, type: 3}
+      propertyPath: breachers.Array.data[1]
+      value: 
+      objectReference: {fileID: 1997080754533324801, guid: e023f0ec347876c439b5210683197773, type: 3}
+    - target: {fileID: 446585456320066883, guid: 3906ac6dc1839834cb6277db682c9d7a, type: 3}
+      propertyPath: breachers.Array.data[2]
+      value: 
+      objectReference: {fileID: 1997080754533324801, guid: f0350d6a2d7693241acc503b67873356, type: 3}
+    - target: {fileID: 446585456320066883, guid: 3906ac6dc1839834cb6277db682c9d7a, type: 3}
+      propertyPath: breachers.Array.data[3]
+      value: 
+      objectReference: {fileID: 1997080754533324801, guid: f9ae5ff02df5942469503ad5f28710ef, type: 3}
+    - target: {fileID: 446585456320066883, guid: 3906ac6dc1839834cb6277db682c9d7a, type: 3}
+      propertyPath: breachers.Array.data[4]
+      value: 
+      objectReference: {fileID: 1997080754533324801, guid: f6bc0633cf8d60148b4213221e11e14c, type: 3}
+    - target: {fileID: 1397550786926008382, guid: 3906ac6dc1839834cb6277db682c9d7a, type: 3}
+      propertyPath: m_TagString
+      value: OffscreenBreacherTarget
+      objectReference: {fileID: 0}
     - target: {fileID: 1629139868399497323, guid: 3906ac6dc1839834cb6277db682c9d7a, type: 3}
       propertyPath: data.dataString
       value: UEsDBBQAAAgIAABoIewQl5rJgQIAADsFAAALACQAZ3JhcGgwLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQFlVMFy2jAQ/RVG58LYxtjQW0sI6SEJU9rJxRdhr7EGWfJIcoBk+PeuZIEdygX57e7T27drfxImdAO5kWqtWPEsCyDfR8SeybdRH3yCE91LsWUfcM15Y4WpbBJ1Ob+pYRLx0JZpWYNRLP8h9twmBwi2gpVS1atiD0upjUa4pFwDhpQ0tlog9DkiJ/wbL2zJGU9Rak8feFoEowsecxAGVJ8aTOIF/pLYF4STRZBO43kyXY2DxNeOw0k6n4fTeRQimjqiVuSc1g0Utqueb5ZMFo4w8oTTyKUL7Ntn2h5zyTnTXjQx58aZsm0qUGBdKRhFD5xQm14B21fG9jOsfS1LDcYbpOj5gSm0siMlP2Xnb031oZP3Tnlrr0lip6jjfP4vPA5duFSyfrpeGwb2ClOx/PCbnnOqzcD/IfzwVXcrjpQf6I7DWwXiRa6VbEWBQaNaW9pqiB76x1tnywryQ493Uu/AthlM0Zsd3AY2ulxc86clZ/WuG3QHbLl0brsdAYVz+YWC3QZpT4GoVfFXwx+6H66aDzwypQ2GfJfCytvJVtlUsnKe2W5as5RKgIO96AYE5ea8QRpzP8G72ODau8gjtS+Vv9zHru/KXYmD+/wguAtt5PE2LF3J4zPo6rU1nAnoRdvAC/q0lEJ0Czb05Fq2bVVJ80HZvmXF19UiaRIEJY3pLKVxGc1m4900TtJFvAtmUQrpbk7c7jGBfVK+6YR6e3BqoicXuGfXb81orWjjlr1Q9LhmH7UcWM5EKbe5AhCvHcNNOCi8BN/JYlUwNGgLxjDh5k0+M8JlfoAiuxFlrtPVySia9SwZadi7NBbJyNJ9XDJi4dsubxS8Mzjay69kF3L5B1BLAwQUAAAICAAAaCHseRdqk20AAAB4AAAACQAkAG1ldGEuanNvbgoAIAAAAAAAAQAYAACAPtXesZ0BAIA+1d6xnQEAgD7V3rGdAatWKkstKs7Mz1OyUjDRM9IzNNdRUEovSizIKAaKGII4pZkpIHa0krmZgUFaokmiqXmiSZqRqalukrGJmbmlSZKBqZF5qnmShVIsUH1JZUGqX2JuKkRPQGJJRlpmXkpmXrqee1FmijvIaKXYWgBQSwECLQAUAAAICAAAaCHsEJeayYECAAA7BQAACwAkAAAAAAAAAAAAAAAAAAAAZ3JhcGgwLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQFQSwECLQAUAAAICAAAaCHseRdqk20AAAB4AAAACQAkAAAAAAAAAAAAAADOAgAAbWV0YS5qc29uCgAgAAAAAAABABgAAIA+1d6xnQEAgD7V3rGdAQCAPtXesZ0BUEsFBgAAAAACAAIAuAAAAIYDAAAAAA==
@@ -53881,9 +53901,17 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4722224471368054627, guid: 3906ac6dc1839834cb6277db682c9d7a, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -3.5
+      objectReference: {fileID: 0}
     - target: {fileID: 4863617170718976024, guid: 3906ac6dc1839834cb6277db682c9d7a, type: 3}
       propertyPath: m_Name
       value: Scene
+      objectReference: {fileID: 0}
+    - target: {fileID: 7526112485731124604, guid: 3906ac6dc1839834cb6277db682c9d7a, type: 3}
+      propertyPath: spawnInterval
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8072602926681633058, guid: 3906ac6dc1839834cb6277db682c9d7a, type: 3}
       propertyPath: m_Size.x
@@ -53901,7 +53929,8 @@ PrefabInstance:
       propertyPath: m_Offset.y
       value: -0.07299928
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1370804998380683020, guid: 3906ac6dc1839834cb6277db682c9d7a, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
