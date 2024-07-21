@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class CloudMover : MonoBehaviour
 {
-    public float speed = 10f; // Speed of the cloud movement
+    public float speed = 2f; // Speed of the cloud movement
     public RectTransform startTransform; // Starting position of the cloud (off-screen to the right)
     public RectTransform endTransform; // Ending position of the cloud (off-screen to the left)
 

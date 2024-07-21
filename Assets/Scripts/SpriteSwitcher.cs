@@ -1,25 +1,27 @@
 using System.Collections;
-using System.Collections.Generic;
-using UnityEngine.UI;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class SpriteSwitcher : MonoBehaviour
 {
-    // Start is called before the first frame update
     private MicrophoneInput micInput;
     public Image targetImage;
     public Sprite micOffSprite;
     public Sprite micOnSprite;
-    // public float threshold = 0.1f;
     public float delay = 0.30f;
 
-    public Image full;
-
     private Coroutine spriteChangeCoroutine;
+    public GameObject shrekSprite; // GameObject for the random sprite
+    public RectTransform canvasRectTransform; // Reference to the canvas RectTransform
+    private SpriteRenderer shrekSpriteRenderer;
 
-    void Start() 
+    private bool isShrekVisible = false;
+
+    void Start()
     {
         micInput = GetComponent<MicrophoneInput>();
+        shrekSpriteRenderer = shrekSprite.GetComponent<SpriteRenderer>();
+        shrekSpriteRenderer.enabled = false; // Start with the sprite hidden
     }
 
     void Update()
@@ -32,18 +34,23 @@ public class SpriteSwitcher : MonoBehaviour
                 StopCoroutine(spriteChangeCoroutine);
                 spriteChangeCoroutine = null;
             }
-            ChangeSprite(micOnSprite);
+            ChangeMicSprite(micOnSprite);
+            if (!isShrekVisible)
+            {
+                ShowShrekSprite(true);
+                isShrekVisible = true;
+            }
         }
         else
         {
             if (spriteChangeCoroutine == null)
             {
-                spriteChangeCoroutine = StartCoroutine(DelayedSpriteChange());
+                spriteChangeCoroutine = StartCoroutine(DelayedHideShrekSprite());
             }
         }
     }
 
-    void ChangeSprite(Sprite newSprite)
+    void ChangeMicSprite(Sprite newSprite)
     {
         if (targetImage != null && targetImage.sprite != newSprite)
         {
@@ -51,10 +58,37 @@ public class SpriteSwitcher : MonoBehaviour
         }
     }
 
-    IEnumerator DelayedSpriteChange()
+    void ShowShrekSprite(bool makeVisible)
+    {
+        if (makeVisible)
+        {
+            shrekSpriteRenderer.enabled = true;
+            Vector2 randomPosition = GetRandomPosition();
+            shrekSprite.transform.position = randomPosition;
+        }
+        else
+        {
+            shrekSpriteRenderer.enabled = false;
+        }
+    }
+
+    IEnumerator DelayedHideShrekSprite()
     {
         yield return new WaitForSeconds(delay);
-        ChangeSprite(micOffSprite);
+        ShowShrekSprite(false);
+        ChangeMicSprite(micOffSprite);
         spriteChangeCoroutine = null;
+        isShrekVisible = false;
+    }
+
+    Vector2 GetRandomPosition()
+    {
+        // Get random position within the canvas
+        float randomX = Random.Range(-canvasRectTransform.rect.width / 2, canvasRectTransform.rect.width / 2);
+        float randomY = Random.Range(-canvasRectTransform.rect.height / 2, canvasRectTransform.rect.height / 2);
+
+        // Convert to world position
+        Vector2 worldPosition = canvasRectTransform.TransformPoint(new Vector2(randomX, randomY));
+        return worldPosition;
     }
 }
