@@ -173,7 +173,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d85ee8539843f8a479cd0932bec518ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 200
+  speed: 500
 --- !u!114 &4275949587829134576
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -186,9 +186,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d68ca0917b9d61142ae97616f7dbe70b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  micInput: {fileID: 0}
-  activationInterval: 1
-  waveObject: {fileID: 0}
+  micInput: {fileID: 4733952215869757828, guid: 6c37a187bec365a4d9e4d120f185107a, type: 3}
+  activationInterval: 0.5
+  waveObject: {fileID: 8739375181040327831, guid: 59096b4e128e9dd408e9e69ac23fe15b, type: 3}
   spawnPos: {fileID: 8211198543656794111}
 --- !u!1 &8300063054768105844
 GameObject:

@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
+
 
 public class HomeController : MonoBehaviour
 {
@@ -30,6 +32,18 @@ public class HomeController : MonoBehaviour
         }
 
         _breachText.text = _breacherCount + "/" + maxBreacherCount;
+
+        // Game over!!
+        if(_breachSlider.value >= _breachSlider.maxValue){
+
+
+            SwitchToScene("TitleScreen");
+        }
+    }
+
+    public void SwitchToScene(string sceneName)
+    {
+        SceneManager.LoadScene(sceneName);
     }
 
     public void AddBreacher() {
