@@ -2,17 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ShoutWaveMovement: MonoBehaviour
+public class ShoutWaveMovement : MonoBehaviour
 {
 
     public float size = 0.05f;
     public float moveSpeed = 10.0f;
     // public Vector2 position;
-    
+
 
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -27,7 +27,7 @@ public class ShoutWaveMovement: MonoBehaviour
         float moveDuration = 0.5f; // Move for 1 second
         float elapsedTime = 0f;
         transform.localPosition = position;
-        
+
         RotateTowards(direction);
 
         // Move the square object based on the volume
@@ -35,7 +35,7 @@ public class ShoutWaveMovement: MonoBehaviour
         {
             transform.Translate(Vector3.up * moveSpeed * volume * Time.deltaTime);
             Vector2 scale = transform.localScale;
-            scale.x += size; 
+            scale.x += size;
             transform.localScale = scale;
             elapsedTime += Time.deltaTime;
             yield return null;
@@ -57,5 +57,14 @@ public class ShoutWaveMovement: MonoBehaviour
 
         // Apply the rotation to the object
         transform.rotation = rotation;
+    }
+
+    void OnTriggerEnter2D(Collider2D col)
+    {
+        if (col.gameObject.tag == "Breacher")
+        {
+            BreacherController bc = col.GetComponent<BreacherController>();
+            bc.TakeDamage(1);                                                //TODO: Modify this based on volume
+        }
     }
 }

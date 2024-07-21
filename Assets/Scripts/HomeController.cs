@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using TMPro;
 
@@ -24,21 +25,29 @@ public class HomeController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space))
         {
             AddBreacher();
         }
 
         _breachText.text = _breacherCount + "/" + maxBreacherCount;
+
+        if (_breacherCount >= maxBreacherCount)
+        {
+            SceneManager.LoadScene("TitleScreen");
+        }
     }
 
-    public void AddBreacher() {
+    public void AddBreacher()
+    {
         _breacherCount++;
         _breachSlider.value = _breacherCount;
     }
 
-    public void OnTriggerEnter2D(Collider2D col) {
-        if(col.gameObject.tag == "Breacher") {
+    public void OnTriggerEnter2D(Collider2D col)
+    {
+        if (col.gameObject.tag == "Breacher")
+        {
             AddBreacher();
             Destroy(col.gameObject);
         }
