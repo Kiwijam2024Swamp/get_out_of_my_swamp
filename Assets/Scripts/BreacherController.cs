@@ -42,12 +42,13 @@ public class BreacherController : MonoBehaviour
         if (_health > 0 && _damageEffect == false)
         {
             //Move towards house door
-            transform.position = Vector2.MoveTowards(transform.position, _targetPos.position, speed * Time.deltaTime);
+            //transform.position = Vector2.MoveTowards(transform.position, _targetPos.position, speed * Time.deltaTime);
+            ds.target = _targetPos;
         }
         else
         {
             //Move away from house door
-            transform.position = Vector2.MoveTowards(transform.position, _offscreenTargetPos.position, speed * Time.deltaTime);
+            //transform.position = Vector2.MoveTowards(transform.position, _offscreenTargetPos.position, speed * Time.deltaTime);
 
             ds.target = _offscreenTargetPos;
         }
