@@ -30,7 +30,7 @@ public class HomeController : MonoBehaviour
         _breachSlider.value = 0;
         _breachSlider.maxValue = maxBreacherCount;
 
-        spriteRenderer = gameOverSprite.GetComponent<SpriteRenderer>();
+        // spriteRenderer = gameOverSprite.GetComponent<SpriteRenderer>();
 
         // Make sure the sprite starts fully invisible
         Color color = spriteRenderer.color;
