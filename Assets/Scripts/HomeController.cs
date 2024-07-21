@@ -51,9 +51,10 @@ public class HomeController : MonoBehaviour
         if (_breacherCount >= maxBreacherCount)
         {
             // Handle game over here
+            SceneManager.LoadScene("TitleScene"); < -----uncomment to go to main screen if player loses
             Debug.Log("Game Over!");
         }
-        // Game over!!
+        /*// Game over!!
         if (_breachSlider.value >= _breachSlider.maxValue)
         {
             GameOverWaiting();
@@ -71,7 +72,7 @@ public class HomeController : MonoBehaviour
             Color color = spriteRenderer.color;
             color.a = alpha;
             spriteRenderer.color = color;
-        }
+        }*/
     }
 
     public void SwitchToScene(string sceneName)
