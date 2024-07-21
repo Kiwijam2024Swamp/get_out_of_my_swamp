@@ -24,21 +24,30 @@ public class HomeController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space))
         {
             AddBreacher();
         }
 
         _breachText.text = _breacherCount + "/" + maxBreacherCount;
+
+        if (_breacherCount >= maxBreacherCount)
+        {
+            // Handle game over here
+            Debug.Log("Game Over!");
+        }
     }
 
-    public void AddBreacher() {
+    public void AddBreacher()
+    {
         _breacherCount++;
         _breachSlider.value = _breacherCount;
     }
 
-    public void OnTriggerEnter2D(Collider2D col) {
-        if(col.gameObject.tag == "Breacher") {
+    public void OnTriggerEnter2D(Collider2D col)
+    {
+        if (col.gameObject.tag == "Breacher")
+        {
             AddBreacher();
             Destroy(col.gameObject);
         }
