@@ -24,7 +24,7 @@ public class ShoutWaveMovement: MonoBehaviour
     public IEnumerator MoveSquare(float volume, Vector2 position, Vector2 direction)
     {
         // Create(this.gameObject);
-        float moveDuration = 0.5f; // Move for 1 second
+        float moveDuration = 1f; // Move for 1 second
         float elapsedTime = 0f;
         transform.localPosition = position;
         
