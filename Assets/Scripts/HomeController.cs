@@ -30,11 +30,11 @@ public class HomeController : MonoBehaviour
             AddBreacher();
         }
 
-        _breachText.text = _breacherCount + "/" + maxBreacherCount;
+        _breachText.text = _breacherCount + "  " + maxBreacherCount;
 
         if (_breacherCount >= maxBreacherCount)
         {
-            SceneManager.LoadScene("TitleScreen");
+            SceneManager.LoadScene("End_screen");
         }
     }
 

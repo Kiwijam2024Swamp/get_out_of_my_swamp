@@ -21,7 +21,7 @@ public class GameManager : MonoBehaviour
 
     public void Update()
     {
-        _scoreText.text = "Score: " + score;
+        _scoreText.text = "Score " + score;
 
         if (_difficultyTimer <= 0)
         {
