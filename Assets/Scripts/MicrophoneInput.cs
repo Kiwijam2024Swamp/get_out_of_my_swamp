@@ -1,43 +1,72 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.Android;
 
 public class MicrophoneInput : MonoBehaviour
 {
     private string microphone;
-    // public float threshold = 0.5f;
     private AudioClip micClip;
     private int sampleWindow = 128;
 
     void Start()
     {
-        // Use the default microphone
-        if (microphone == null)
+        #if UNITY_WEBGL && !UNITY_EDITOR
+        Application.ExternalCall("requestMicrophone");
+        #elif UNITY_ANDROID
+        if (Permission.HasUserAuthorizedPermission(Permission.Microphone))
         {
-            microphone = Microphone.devices[0];
+            InitializeMicrophone();
         }
-        StartMicrophone();
+        else
+        {
+            Permission.RequestUserPermission(Permission.Microphone);
+        }
+        #elif UNITY_IOS
+        InitializeMicrophone();
+        #else
+        InitializeMicrophone();
+        #endif
     }
 
-    void Update()
+    void OnApplicationFocus(bool focus)
     {
-        // float volume = GetMicrophoneVolume();
-        // // Debug.Log("Loudness: " + volume);
+        #if UNITY_ANDROID
+        if (focus && !Permission.HasUserAuthorizedPermission(Permission.Microphone))
+        {
+            Permission.RequestUserPermission(Permission.Microphone);
+        }
+        #endif
+    }
 
-        // if (volume > threshold)
-        // {
-        //     Debug.Log("Loudness: " + volume);
-        // }
+    void InitializeMicrophone()
+    {
+        // Check if there is at least one microphone available
+        if (Microphone.devices.Length > 0)
+        {
+            // Use the first available microphone
+            microphone = Microphone.devices[0];
+            StartMicrophone();
+        }
+        else
+        {
+            Debug.LogWarning("No microphone found!");
+        }
     }
 
     void StartMicrophone()
     {
-        micClip = Microphone.Start(microphone, true, 1, AudioSettings.outputSampleRate);
+        if (microphone != null)
+        {
+            micClip = Microphone.Start(microphone, true, 1, AudioSettings.outputSampleRate);
+        }
     }
 
     public float GetMicrophoneVolume()
     {
+        if (micClip == null || microphone == null)
+            return 0;
+
         float[] data = new float[sampleWindow];
         int position = Microphone.GetPosition(microphone) - sampleWindow + 1;
         if (position < 0)
@@ -64,6 +93,9 @@ public class MicrophoneInput : MonoBehaviour
 
     void StopMicrophone()
     {
-        Microphone.End(microphone);
+        if (microphone != null)
+        {
+            Microphone.End(microphone);
+        }
     }
 }

@@ -22,33 +22,36 @@ public class ShrekController : MonoBehaviour
         float movex = 0.0f;
         float movey = 0.0f;
 
-        if(Input.GetKey(KeyCode.W))
+        if (Input.GetKey(KeyCode.W))
         {
             movey += 1.0f;
         }
 
-        if(Input.GetKey(KeyCode.S))
+        if (Input.GetKey(KeyCode.S))
         {
             movey -= 1.0f;
         }
 
-        if(Input.GetKey(KeyCode.A))
+        if (Input.GetKey(KeyCode.A))
         {
             movex -= 1.0f;
         }
 
-        if(Input.GetKey(KeyCode.D))
+        if (Input.GetKey(KeyCode.D))
         {
             movex += 1.0f;
         }
 
         direction = new Vector2(movex, movey).normalized;
-        if(direction.x > 0) {
+
+        if (direction.x > 0)
+        {
             sr.flipX = false;
-        } else if(direction.x < 0) {
+        }
+        else if (direction.x < 0)
+        {
             sr.flipX = true;
         }
-        
     }
 
     void FixedUpdate()

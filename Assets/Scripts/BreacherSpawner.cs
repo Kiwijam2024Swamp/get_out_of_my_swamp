@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,32 +6,45 @@ using Random = UnityEngine.Random;
 
 public class BreacherSpawner : MonoBehaviour
 {
-    public float xrange;
-    public float yrange;
+
+    public Vector2 spawnPosition;
+
     public GameObject[] breachers;
-    public float spawnInterval = 2.0f;
     private float currentTime;
 
-    // Start is called before the first frame update
+    private float _angle;
+    private float _xPos;
+    private float _yPos;
+    public float radius = 10.0f;
+
+    private GameManager _gm;
+
     void Start()
     {
-        currentTime = spawnInterval;
+        _gm = GameObject.Find("GameManager").GetComponent<GameManager>();
+        currentTime = _gm.spawnInterval;
     }
 
-    // Update is called once per frame
     void Update()
     {
-        if(currentTime > 0) {
+        if (currentTime > 0)
+        {
             currentTime -= Time.deltaTime;
-        } else {
+        }
+        else
+        {
             SpawnBreacher();
-            currentTime = spawnInterval;
+            currentTime = _gm.spawnInterval;
         }
     }
 
-    void SpawnBreacher () 
+    void SpawnBreacher()
     {
-        Vector2 spawnPos = new Vector2(Random.Range(transform.position.x - xrange, transform.position.x + xrange), Random.Range(transform.position.y - yrange, transform.position.y + yrange));
+        _angle = Random.Range(0, 360);
+        _xPos = radius * Mathf.Cos(_angle);
+        _yPos = radius * Mathf.Sin(_angle);
+
+        Vector2 spawnPos = new Vector2(_xPos, _yPos);
         int breacherIndex = Random.Range(0, breachers.Length);
         Instantiate(breachers[breacherIndex], spawnPos, Quaternion.identity);
     }
